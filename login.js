@@ -20,7 +20,7 @@ function showMenu(user){
   console.log("2. Retirar saldo");
   console.log("3. Depositar saldo");
 
-  const option = prompt("Ingrese el numero de opcion:");
+  const option = prompt("Ingrese el numero de opcion: 1->Consultar Saldo; 2-> Retirar; 3->Depositar");
   switch (option){
     case "1":
       consultarSaldo(user);
@@ -44,25 +44,18 @@ function ConsultarSaldo(user){
 }
 
 function retirar(user){
-  const amount = parseFloat(prompt("Ingrese la cantidad a retirar"))
-  if (isNaN(amount)){
-    console.log("Cantidad no válida");
-    return;
-  }
+  const amount = parseFloat(prompt("Ingrese la cantidad a retirar"));
+  
   if(amount > user.balance){
     console.log("Saldo insuficiente.");
   } else {
     user.balance -= amount;
     console.log("Retiro exitoso. Saldo restante:" + user.balance);
   }
-  }
+}
 
 function Depositar(user){
 const amount = parseFloat(prompt("Ingrese la cantidad a depositar"));
-  if isNaN(amount){
-    console.log("Ingrese una cantidad valida");
-    return
-  }
   
   user.balance += amount;
   console.log("Deposito exitoso. Su saldo actual es:" + user.balance);
@@ -71,4 +64,4 @@ const amount = parseFloat(prompt("Ingrese la cantidad a depositar"));
 const username = prompt("Ingrese su usuario:");
 const password = prompt("Ingrese su contraseña:");
 
-Login(username,password);
+Login(username, password);
