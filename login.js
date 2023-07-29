@@ -15,7 +15,7 @@ function Login(username, password){
 }
 
 function showMenu(user){
-  console.log("Bienvenido" + user.username + ".");
+  console.log("Bienvenido " + user.username + ".");
   console.log("1. Consultar saldo.");
   console.log("2. Retirar saldo");
   console.log("3. Depositar saldo");
@@ -39,8 +39,8 @@ function showMenu(user){
   }
 }
 
-function ConsultarSaldo(user){
-  console.log("El saldo actual es" + user.balance);
+function consultarSaldo(user){
+  console.log("El saldo actual es " + user.balance);
 }
 
 function retirar(user){
@@ -50,15 +50,18 @@ function retirar(user){
     console.log("Saldo insuficiente.");
   } else {
     user.balance -= amount;
-    console.log("Retiro exitoso. Saldo restante:" + user.balance);
+    console.log("Retiro exitoso. Su saldo actual es: " + user.balance);
   }
 }
 
-function Depositar(user){
+function depositar(user){
 const amount = parseFloat(prompt("Ingrese la cantidad a depositar"));
-  
-  user.balance += amount;
+  if(amount + user.balance > 990){
+    console.log("No puede tener mas de 990 en su cuenta, su saldo actual es " + user.balance);
+  } else{
+    user.balance += amount;
   console.log("Deposito exitoso. Su saldo actual es:" + user.balance);
+  }
 }
 
 const username = prompt("Ingrese su usuario:");
