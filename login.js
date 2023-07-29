@@ -52,7 +52,11 @@ function retirar(user){
     user.balance -= amount;
     console.log("Retiro exitoso. Su saldo actual es: " + user.balance);
   }
-}
+  if(user.balance - amount < 10){
+    console.log("No puede tener menos de 10 en su cuenta. Su saldo disponible es " + user.balance);
+  }
+  }
+
 
 function depositar(user){
 const amount = parseFloat(prompt("Ingrese la cantidad a depositar"));
